@@ -1,0 +1,38 @@
+.header {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1000px) auto;
+  grid-template-areas:
+    "top top top"
+    ". bottom .";
+}
+
+.top {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1000px) auto;
+  grid-template-areas: ". inner .";
+  grid-area: top;
+
+  color: var(--primary);
+
+  background-color: var(--primary);
+}
+
+.inner {
+  display: grid;
+  grid-template-rows: auto 28px;
+  grid-area: inner;
+  padding: 10px 20px;
+
+  background-color: var(--background);
+}
+
+.bottom {
+  grid-area: bottom;
+  padding: 0 20px;
+
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+
+  background-color: var(--primary);
+}

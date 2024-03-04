@@ -1,0 +1,40 @@
+.wrapper {
+  position: relative;
+
+  padding-bottom: 15px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 15px;
+
+  border: 1px solid transparent;
+  outline-color: var(--primary);
+  background-color: var(--white);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--black);
+
+  &::placeholder {
+    color: var(--gray);
+  }
+}
+
+.error {
+  border: 1px solid var(--red);
+  outline-color: var(--red);
+}
+
+.error__message {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+
+  color: var(--red);
+
+  font-size: 12px;
+  line-height: 14px;
+}

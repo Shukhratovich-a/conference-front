@@ -1,0 +1,24 @@
+.footer {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1000px) auto;
+  grid-template-areas: ". inner .";
+
+  color: #ffffff;
+
+  background-color: #546da5;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-area: inner;
+  padding: 20px;
+}
+
+.left {
+  max-width: 300px;
+
+  font-size: 12px;
+  line-height: 16px;
+}

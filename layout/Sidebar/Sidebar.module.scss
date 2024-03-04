@@ -1,0 +1,31 @@
+.nav {
+  max-width: 300px;
+  width: 100%;
+
+  color: var(--primary);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+
+  background-color: var(--white);
+
+  list-style-type: none;
+}
+
+.item {
+  & + & {
+    border-top: 2px solid var(--background);
+  }
+}
+
+.link {
+  display: block;
+  padding: 15px;
+
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
+}
