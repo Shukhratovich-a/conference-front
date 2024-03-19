@@ -26,7 +26,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className, ...props }) => {
   const onSubmit = async (formData: ILoginForm) => {
     const { status, id } = await login(formData);
 
-    if (status === 200 && !!id) replace(`/profile/${id}`);
+    if (status === 200 && !!id) replace(`/profile`);
     else if (status === 401) setError("Wrong email or password");
     else setError("Something went wrong");
   };
