@@ -5,6 +5,8 @@ import cn from "classnames";
 
 import { LayoutProps } from "./Layout.props";
 
+import { AuthContextProvider, IAuthContext } from "@/contexts/auth.context";
+
 import { Header } from "./Header/Header.component";
 import { Footer } from "./Footer/Footer.component";
 import { Sidebar } from "./Sidebar/Sidebar.component";
@@ -29,12 +31,14 @@ export const Layout: FC<LayoutProps> = ({ children, className, ...props }) => {
   );
 };
 
-export const withLayout = <T extends Record<string, unknown>>(Component: FC<T>) => {
+export const withLayout = <T extends Record<string, unknown> & IAuthContext>(Component: FC<T>) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
-      <Layout>
-        <Component {...props} />
-      </Layout>
+      <AuthContextProvider token={props.token} user={props.user}>
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      </AuthContextProvider>
     );
   };
 };
