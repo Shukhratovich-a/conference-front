@@ -1,0 +1,16 @@
+.form__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin-bottom: 5px;
+}
+
+.error {
+  display: block;
+  margin-top: 20px;
+
+  font-weight: 600;
+  color: var(--red);
+}
