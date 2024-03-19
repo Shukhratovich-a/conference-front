@@ -32,7 +32,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
       if (status === 201) {
         const { status, id } = await login(formData);
 
-        if (status === 200 && !!id) replace(`/profile/${id}`);
+        if (status === 200 && !!id) replace(`/profile`);
       }
     } catch (error) {
       if (error instanceof AxiosError && error.response?.status === 401) setError("This email exist");
