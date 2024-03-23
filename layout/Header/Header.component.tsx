@@ -1,5 +1,7 @@
 import { FC, useContext } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
 import cn from "classnames";
 
 import { HeaderProps } from "./Header.props";
@@ -7,12 +9,16 @@ import { HeaderProps } from "./Header.props";
 import { AuthContext } from "@/contexts/auth.context";
 
 import { Button } from "@/components";
-import { Navbar } from "../Navbar/Navbar.component";
+import { Navbar } from "@/layout/Navbar/Navbar.component";
+
+import HeaderBackground from "@/assets/images/header-background.webp";
+import HeaderLogo from "@/assets/images/logo.webp";
 
 import styles from "./Header.module.scss";
 
 export const Header: FC<HeaderProps> = ({ className, ...props }) => {
   const { token, user, logout } = useContext(AuthContext);
+  const { pathname } = useRouter();
 
   const handleLogout = () => {
     if (!logout) return;
@@ -24,9 +30,13 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
     <header className={cn(styles.header, className)} {...props}>
       <div className={cn(styles.top)}>
         <div className={cn(styles.inner)}>
-          <div className={cn(styles.logo)}>Logo</div>
+          <div className={cn(styles.logo)}>
+            <Image className={cn(styles.logo__image)} src={HeaderLogo} alt="" priority height={100} />
+          </div>
 
-          <div className={cn(styles.content)}>Some info</div>
+          <div className={cn(styles.content)}>
+            {`IX xalqaro ilmiy "Amaliy matematika va axborot texnologiyalarining dolzarb muammolari" - Al-Xorazmiy 2024 xalqaro ilmiy konferensiyasi`}
+          </div>
 
           <div className={cn(styles.user)}>
             {user && token ? (
@@ -52,6 +62,12 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
       </div>
 
       <div className={cn(styles.bottom)}>
+        {pathname === "/" && (
+          <div className={cn(styles.background)}>
+            <Image className={cn(styles.background__image)} src={HeaderBackground} alt="" fill priority />
+          </div>
+        )}
+
         <Navbar className={cn(styles.nav)} />
       </div>
     </header>
