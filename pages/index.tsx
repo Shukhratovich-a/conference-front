@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
 
@@ -7,11 +8,17 @@ import { getByToken } from "@/api/user.api";
 
 import { withLayout } from "@/layout/Layout";
 
+import { HomeView } from "@/views";
+
 const HomePage: FC<HomePageProps> = ({}) => {
-  return <>Home</>;
+  return (
+    <>
+      <HomeView />
+    </>
+  );
 };
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ req: { cookies } }) => {
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ req: { cookies }, locale }) => {
   const token = cookies.token || null;
   let user = null;
 
@@ -24,6 +31,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ re
     props: {
       token,
       user,
+      ...(await serverSideTranslations(String(locale))),
     },
   };
 };
