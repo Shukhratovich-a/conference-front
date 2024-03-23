@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
 import { NavbarProps } from "./Navbar.props";
@@ -7,27 +8,29 @@ import { NavbarProps } from "./Navbar.props";
 import styles from "./Navbar.module.scss";
 
 export const Navbar: FC<NavbarProps> = ({ className, ...props }) => {
+  const { t } = useTranslation();
+
   return (
     <nav className={cn(styles.nav, className)} {...props}>
       <ul className={cn(styles.list)}>
         <li className={cn(styles.item)}>
           <Link className={cn(styles.link)} href={"/"}>
-            Home
+            {t("home")}
           </Link>
         </li>
         <li className={cn(styles.item)}>
           <Link className={cn(styles.link)} href={"/organizers"}>
-            Organizers
+            {t("organizers")}
           </Link>
         </li>
         <li className={cn(styles.item)}>
           <Link className={cn(styles.link)} href={"/speakers"}>
-            Speakers
+            {t("speakers")}
           </Link>
         </li>
         <li className={cn(styles.item)}>
           <Link className={cn(styles.link)} href={"/participants"}>
-            Participants
+            {t("participants")}
           </Link>
         </li>
       </ul>
