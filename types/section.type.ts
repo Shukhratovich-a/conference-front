@@ -1,4 +1,4 @@
-export interface ITopic {
+export interface ISection {
   id: number;
 
   title: string;
