@@ -1,6 +1,7 @@
 import { FC, useState, useContext } from "react";
 import { AxiosError } from "axios";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import { useForm } from "react-hook-form";
 import cn from "classnames";
 
@@ -16,7 +17,7 @@ import { Select, Input, Textarea, Button } from "@/components";
 
 import styles from "./ArticleForm.module.scss";
 
-export const ArticleForm: FC<ArticleFormProps> = ({ className, topics, ...props }) => {
+export const ArticleForm: FC<ArticleFormProps> = ({ className, sections, ...props }) => {
   const {
     register,
     handleSubmit,
@@ -27,6 +28,8 @@ export const ArticleForm: FC<ArticleFormProps> = ({ className, topics, ...props 
 
   const { push, replace } = useRouter();
   const { user, token } = useContext(AuthContext);
+
+  const { t } = useTranslation();
 
   const onSubmit = async (formData: IArticleForm) => {
     if (!user || !token) return;
@@ -52,7 +55,7 @@ export const ArticleForm: FC<ArticleFormProps> = ({ className, topics, ...props 
   return (
     <form className={cn(styles.form, className)} onSubmit={handleSubmit(onSubmit)} {...props}>
       <div className={cn(styles.form__inner)}>
-        {topics.length && (
+        {sections.length && (
           <Select
             {...register("topicId", { required: { value: true, message: "Select topic" } })}
             className={cn(styles.input)}
@@ -60,11 +63,11 @@ export const ArticleForm: FC<ArticleFormProps> = ({ className, topics, ...props 
             error={errors.topicId}
           >
             <option value={""} disabled>
-              Topic
+              {t("section")}
             </option>
-            {topics.map((topic) => (
-              <option key={topic.id} value={topic.id}>
-                {topic.title}
+            {sections.map((section) => (
+              <option key={section.id} value={section.id}>
+                {section.title}
               </option>
             ))}
           </Select>
