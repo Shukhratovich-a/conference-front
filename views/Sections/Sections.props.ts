@@ -1,8 +1,8 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-import { ITopic } from "@/types/topic.type";
+import { ISection } from "@/types/section.type";
 
-export interface TopicsViewProps
+export interface SectionsViewProps
   extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "children"> {
-  topics: ITopic[];
+  sections: ISection[];
 }
