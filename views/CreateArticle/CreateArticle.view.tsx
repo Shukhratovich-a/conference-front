@@ -7,7 +7,7 @@ import { CreateArticlesViewProps } from "./CreateArticle.props";
 import styles from "./CreateArticle.module.scss";
 import { ArticleForm } from "@/components";
 
-export const CreateArticlesView: FC<CreateArticlesViewProps> = ({ className, topics, ...props }) => {
+export const CreateArticlesView: FC<CreateArticlesViewProps> = ({ className, sections, ...props }) => {
   return (
     <div className={cn(styles.view, className)} {...props}>
       <div className={cn(styles.nav)}>
@@ -24,7 +24,7 @@ export const CreateArticlesView: FC<CreateArticlesViewProps> = ({ className, top
         </Link>
       </div>
 
-      <ArticleForm topics={topics} />
+      <ArticleForm sections={sections} />
     </div>
   );
 };

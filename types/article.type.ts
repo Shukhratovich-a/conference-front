@@ -1,4 +1,4 @@
-import { ITopic } from "./topic.type";
+import { ISection } from "./section.type";
 import { IUser } from "./user.type";
 
 export interface IArticle {
@@ -12,7 +12,7 @@ export interface IArticle {
 
   file?: string;
 
-  topic: ITopic;
+  section: ISection;
 
   user: IUser;
 
