@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { RoleEnum } from "@/enums/role.enum";
 import { IUser } from "@/types/user.type";
@@ -14,7 +15,7 @@ const SpeakersPage: FC<SpeakersPageProps> = ({ speakers }) => {
   return <SpeakersView speakers={speakers} />;
 };
 
-export const getServerSideProps: GetServerSideProps<SpeakersPageProps> = async ({ req: { cookies } }) => {
+export const getServerSideProps: GetServerSideProps<SpeakersPageProps> = async ({ req: { cookies }, locale }) => {
   const { data: speakers } = await getAll(RoleEnum.SPEAKER);
 
   const token = cookies.token || null;
@@ -30,6 +31,7 @@ export const getServerSideProps: GetServerSideProps<SpeakersPageProps> = async (
       speakers,
       token,
       user,
+      ...(await serverSideTranslations(String(locale))),
     },
   };
 };

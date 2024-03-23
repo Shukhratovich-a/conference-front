@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
 import { IArticle } from "@/types/article.type";
@@ -15,7 +16,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ articles }) => {
   return <ArticlesView articles={articles} />;
 };
 
-export const getServerSideProps: GetServerSideProps<ArticlesPageProps> = async ({ params, req: { cookies } }) => {
+export const getServerSideProps: GetServerSideProps<ArticlesPageProps> = async ({ locale, req: { cookies } }) => {
   const token = cookies.token;
   if (!token) return { notFound: true };
 
@@ -25,7 +26,14 @@ export const getServerSideProps: GetServerSideProps<ArticlesPageProps> = async (
 
     const { data: articles } = await getArticlesByToken(token);
 
-    return { props: { user, token, articles } };
+    return {
+      props: {
+        user,
+        token,
+        articles,
+        ...(await serverSideTranslations(String(locale))),
+      },
+    };
   } catch {
     return { notFound: true };
   }

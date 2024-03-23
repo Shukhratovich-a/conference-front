@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { RoleEnum } from "@/enums/role.enum";
 import { IUser } from "@/types/user.type";
@@ -14,7 +15,7 @@ const OrganizersPage: FC<OrganizersPageProps> = ({ organizers }) => {
   return <OrganizersView organizers={organizers} />;
 };
 
-export const getServerSideProps: GetServerSideProps<OrganizersPageProps> = async ({ req: { cookies } }) => {
+export const getServerSideProps: GetServerSideProps<OrganizersPageProps> = async ({ req: { cookies }, locale }) => {
   const { data: organizers } = await getAll(RoleEnum.ORGANIZER);
 
   const token = cookies.token || null;
@@ -30,6 +31,7 @@ export const getServerSideProps: GetServerSideProps<OrganizersPageProps> = async
       organizers,
       token,
       user,
+      ...(await serverSideTranslations(String(locale))),
     },
   };
 };

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { RoleEnum } from "@/enums/role.enum";
 import { IUser } from "@/types/user.type";
@@ -14,7 +15,7 @@ const ParticipantsPage: FC<ParticipantsPageProps> = ({ participants }) => {
   return <ParticipantsView participants={participants} />;
 };
 
-export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = async ({ req: { cookies } }) => {
+export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = async ({ req: { cookies }, locale }) => {
   const { data: participants } = await getAll(RoleEnum.PARTICIPANT);
 
   const token = cookies.token || null;
@@ -30,6 +31,7 @@ export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = asy
       participants,
       token,
       user,
+      ...(await serverSideTranslations(String(locale))),
     },
   };
 };
