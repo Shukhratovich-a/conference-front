@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
+import { appWithTranslation } from "next-i18next";
 
 import "@/styles/globals.scss";
 
@@ -21,4 +22,4 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   );
 };
 
-export default App;
+export default appWithTranslation(App);
