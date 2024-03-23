@@ -1,5 +1,3 @@
-import { ITopic } from "@/types/topic.type";
-
 export interface IArticleForm {
   title: string;
 

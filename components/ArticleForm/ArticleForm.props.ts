@@ -1,8 +1,8 @@
 import { DetailedHTMLProps, FormHTMLAttributes } from "react";
 
-import { ITopic } from "@/types/topic.type";
+import { ISection } from "@/types/section.type";
 
 export interface ArticleFormProps
   extends Omit<DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>, "children"> {
-  topics: ITopic[];
+  sections: ISection[];
 }
