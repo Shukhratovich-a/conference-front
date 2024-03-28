@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@svgr/webpack": "^8.1.0",
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
     "cookies-next": "^4.1.1",
@@ -25,6 +24,7 @@
     "sharp": "^0.33.3"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
