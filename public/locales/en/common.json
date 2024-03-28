@@ -4,8 +4,12 @@
   "speakers": "Speakers",
   "participants": "Participants",
 
+  "main-text": "IX xalqaro ilmiy \"Amaliy matematika va axborot texnologiyalarining dolzarb muammolari\" - Al-Xorazmiy 2024 xalqaro ilmiy konferensiyasi",
+
   "section": "Section",
   "sections": "Sections",
 
-  "contacts": "Contacts"
+  "contacts": "Contacts",
+
+  "logout": "Logout"
 }
