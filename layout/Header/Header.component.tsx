@@ -2,13 +2,14 @@ import { FC, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
 import { HeaderProps } from "./Header.props";
 
 import { AuthContext } from "@/contexts/auth.context";
 
-import { Button } from "@/components";
+import { Button, Language } from "@/components";
 import { Navbar } from "@/layout/Navbar/Navbar.component";
 
 import HeaderBackground from "@/assets/images/header-background.webp";
@@ -19,6 +20,7 @@ import styles from "./Header.module.scss";
 export const Header: FC<HeaderProps> = ({ className, ...props }) => {
   const { token, user, logout } = useContext(AuthContext);
   const { pathname } = useRouter();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     if (!logout) return;
@@ -34,9 +36,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
             <Image className={cn(styles.logo__image)} src={HeaderLogo} alt="" priority height={100} />
           </div>
 
-          <div className={cn(styles.content)}>
-            {`IX xalqaro ilmiy "Amaliy matematika va axborot texnologiyalarining dolzarb muammolari" - Al-Xorazmiy 2024 xalqaro ilmiy konferensiyasi`}
-          </div>
+          <div className={cn(styles.content)}>{t("main-text")}</div>
 
           <div className={cn(styles.user)}>
             {user && token ? (
@@ -47,7 +47,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
                   </Button>
                 </Link>
                 <Button className={cn(styles.button)} size="sm" onClick={handleLogout}>
-                  Logout
+                  {t("logout")}
                 </Button>
               </div>
             ) : (
@@ -58,6 +58,8 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
               </div>
             )}
           </div>
+
+          <Language className={cn(styles.language)} />
         </div>
       </div>
 
