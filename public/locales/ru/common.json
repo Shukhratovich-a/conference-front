@@ -11,5 +11,18 @@
 
   "contacts": "Контакты",
 
-  "logout": "Выйти"
+  "logout": "Выйти",
+
+  "sidebar": {
+    "important-date": "Важные даты",
+    "sections": "Разделы",
+    "submission": "Подчинение",
+    "conference-venue": "Место проведения",
+    "accommodation": "Размещение",
+    "social-program": "Социальная программа",
+    "conference-fees": "Сборы за конференцию",
+    "program": "Программа",
+    "sponsors": "Спонсоры",
+    "contact": "Контакты"
+  }
 }

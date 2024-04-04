@@ -11,5 +11,18 @@
 
   "contacts": "Kontaktlar",
 
-  "logout": "Chiqish"
+  "logout": "Chiqish",
+
+  "sidebar": {
+    "important-date": "",
+    "sections": "",
+    "submission": "",
+    "conference-venue": "x",
+    "accommodation": "",
+    "social-program": "",
+    "conference-fees": "",
+    "program": "",
+    "sponsors": "",
+    "contact": ""
+  }
 }

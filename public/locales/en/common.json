@@ -11,5 +11,18 @@
 
   "contacts": "Contacts",
 
-  "logout": "Logout"
+  "logout": "Logout",
+
+  "sidebar": {
+    "important-date": "Important dates",
+    "sections": "Sections",
+    "submission": "Submission",
+    "conference-venue": "Conference venue",
+    "accommodation": "Accommodation",
+    "social-program": "Social program",
+    "conference-fees": "Conference fees",
+    "program": "Program",
+    "sponsors": "Sponsors",
+    "contact": "Contacts"
+  }
 }
