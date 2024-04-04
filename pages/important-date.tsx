@@ -8,11 +8,21 @@ import { getByToken } from "@/api/user.api";
 
 import { withLayout } from "@/layout/Layout";
 
-const ContactPage: FC<ContactPageProps> = ({}) => {
-  return <>Contact</>;
+const ImportantDatePage: FC<ImportantDatePageProps> = () => {
+  return (
+    <>
+      <ul>
+        <li>Registration and Abstract submission deadline: 01.06.2024</li>
+
+        <li>Notification of acceptance deadline: 30.06.2024</li>
+
+        <li>Full paper submission deadline: 30.11.2024</li>
+      </ul>
+    </>
+  );
 };
 
-export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({ req: { cookies }, locale }) => {
+export const getServerSideProps: GetServerSideProps<ImportantDatePageProps> = async ({ req: { cookies }, locale }) => {
   const token = cookies.token || null;
   let user = null;
 
@@ -30,9 +40,9 @@ export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({
   };
 };
 
-export default withLayout(ContactPage);
+export default withLayout(ImportantDatePage);
 
-interface ContactPageProps extends Record<string, unknown> {
+interface ImportantDatePageProps extends Record<string, unknown> {
   token: string | null;
   user: IUser | null;
 }

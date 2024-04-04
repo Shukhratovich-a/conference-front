@@ -8,11 +8,11 @@ import { getByToken } from "@/api/user.api";
 
 import { withLayout } from "@/layout/Layout";
 
-const ContactPage: FC<ContactPageProps> = ({}) => {
-  return <>Contact</>;
+const ProgramPage: FC<ProgramPageProps> = () => {
+  return <>program</>;
 };
 
-export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({ req: { cookies }, locale }) => {
+export const getServerSideProps: GetServerSideProps<ProgramPageProps> = async ({ req: { cookies }, locale }) => {
   const token = cookies.token || null;
   let user = null;
 
@@ -30,9 +30,9 @@ export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({
   };
 };
 
-export default withLayout(ContactPage);
+export default withLayout(ProgramPage);
 
-interface ContactPageProps extends Record<string, unknown> {
+interface ProgramPageProps extends Record<string, unknown> {
   token: string | null;
   user: IUser | null;
 }
