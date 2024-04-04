@@ -8,3 +8,4 @@ export * from "./UserInfo/UserInfo.component";
 export * from "./ArticlesList/ArticlesList.component";
 export * from "./ArticleForm/ArticleForm.component";
 export * from "./Language/Language.component";
+export * from "./MainText/MainText.component";
