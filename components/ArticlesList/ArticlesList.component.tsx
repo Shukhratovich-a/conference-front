@@ -1,7 +1,7 @@
 import { FC, useState, useContext } from "react";
 import cn from "classnames";
 
-import { ArticlesViewProps } from "./ArticlesList.props";
+import { ArticlesListProps } from "./ArticlesList.props";
 
 import { remove } from "@/api/article.api";
 
@@ -11,7 +11,7 @@ import { Button } from "@/components";
 
 import styles from "./ArticlesList.module.scss";
 
-export const ArticlesList: FC<ArticlesViewProps> = ({ className, articles, ...props }) => {
+export const ArticlesList: FC<ArticlesListProps> = ({ className, articles, ...props }) => {
   const { token } = useContext(AuthContext);
   const [articlesState, setArticlesState] = useState(articles);
 
