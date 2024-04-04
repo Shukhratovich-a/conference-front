@@ -1,7 +1,7 @@
 /** @type {import('next-i18next').UserConfig} */
 module.exports = {
   i18n: {
-    defaultLocale: "ru",
+    defaultLocale: "en",
     locales: ["en", "ru", "uz"],
   },
   react: { useSuspense: true },
