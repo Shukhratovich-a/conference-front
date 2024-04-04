@@ -11,3 +11,6 @@ export * from "./Sections/Sections.view";
 export * from "./Profile/Profile.view";
 export * from "./Articles/Articles.view";
 export * from "./CreateArticle/CreateArticle.view";
+
+export * from "./Accommodation/Accommodation.view";
+export * from "./ConferenceFees/ConferenceFees.view";
