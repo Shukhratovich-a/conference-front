@@ -12,7 +12,7 @@ export const HomeView: FC<HomeViewProps> = ({ className, homepage, sections, ...
     <div className={cn(styles.view, className)} {...props}>
       <h2 className={cn(styles.heading)}>Home</h2>
 
-      <MainText mainText={homepage.mainText} sections={sections} />
+      <MainText mainText={homepage.mainText || ""} sections={sections} />
     </div>
   );
 };
