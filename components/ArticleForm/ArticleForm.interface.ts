@@ -1,7 +1,7 @@
 export interface IArticleForm {
   title: string;
 
-  topicId: number;
+  sectionId: number;
 
   subtitle?: string;
 

@@ -35,7 +35,7 @@ export const ArticleForm: FC<ArticleFormProps> = ({ className, sections, ...prop
     if (!user || !token) return;
 
     formData.userId = Number(user.id);
-    formData.topicId = Number(formData.topicId);
+    formData.sectionId = Number(formData.sectionId);
 
     try {
       const { data: fileData } = await fileUpload(formData.fileUpload[0]);
@@ -57,10 +57,10 @@ export const ArticleForm: FC<ArticleFormProps> = ({ className, sections, ...prop
       <div className={cn(styles.form__inner)}>
         {sections.length && (
           <Select
-            {...register("topicId", { required: { value: true, message: "Select topic" } })}
+            {...register("sectionId", { required: { value: true, message: "Select topic" } })}
             className={cn(styles.input)}
             defaultValue={""}
-            error={errors.topicId}
+            error={errors.sectionId}
           >
             <option value={""} disabled>
               {t("section")}
