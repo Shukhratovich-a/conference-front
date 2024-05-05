@@ -6,6 +6,15 @@ const nextConfig = {
 
   i18n,
 
+  async rewrites() {
+    return [
+      {
+        source: "/uploads/:path*",
+        destination: "http://localhost:3001/uploads/:path*",
+      },
+    ];
+  },
+
   webpack(config, options) {
     config.module.rules.push({
       loader: "@svgr/webpack",
