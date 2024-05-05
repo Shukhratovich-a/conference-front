@@ -8,6 +8,7 @@ import cn from "classnames";
 import { HeaderProps } from "./Header.props";
 
 import { AuthContext } from "@/contexts/auth.context";
+import { HeaderContext } from "@/contexts/header.context";
 
 import { Button, Language } from "@/components";
 import { Navbar } from "@/layout/Navbar/Navbar.component";
@@ -22,6 +23,8 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
   const { pathname } = useRouter();
   const { t } = useTranslation();
 
+  const { header } = useContext(HeaderContext);
+
   const handleLogout = () => {
     if (!logout) return;
 
@@ -33,10 +36,18 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
       <div className={cn(styles.top)}>
         <div className={cn(styles.inner)}>
           <div className={cn(styles.logo)}>
-            <Image className={cn(styles.logo__image)} src={HeaderLogo} alt="" priority height={100} />
+            <Image
+              className={cn(styles.logo__image)}
+              src={header.logo || HeaderLogo}
+              alt="Header logo"
+              style={{ objectFit: "contain" }}
+              priority
+              width={100}
+              height={100}
+            />
           </div>
 
-          <div className={cn(styles.content)}>{t("main-text")}</div>
+          <div className={cn(styles.content)} dangerouslySetInnerHTML={{ __html: header.mainText || t("main-text") }} />
 
           <div className={cn(styles.user)}>
             {user && token ? (
@@ -66,7 +77,14 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
       <div className={cn(styles.bottom)}>
         {pathname === "/" && (
           <div className={cn(styles.background)}>
-            <Image className={cn(styles.background__image)} src={HeaderBackground} alt="" fill priority />
+            <Image
+              className={cn(styles.background__image)}
+              src={header.poster || HeaderBackground}
+              alt="Poster"
+              sizes="(max-width: 100%)"
+              fill
+              priority
+            />
           </div>
         )}
 
