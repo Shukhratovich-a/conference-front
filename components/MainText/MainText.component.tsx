@@ -9,14 +9,14 @@ export const MainText: FC<MainTextProps> = ({ className, mainText, sections, ...
   const [mainTextState, setMainTextState] = useState<string>(mainText);
 
   useEffect(() => {
-    if (mainText.includes("<p><code>sections</code></p>")) {
-      const htmlSections = `<ol>${
-        sections && !!sections.length && sections.map((section) => `<li>${section.title}</li>`).join("")
-      }</ol>`;
-      const body = mainText.split("<p><code>sections</code></p>").join(htmlSections);
+    if (!mainText.includes("<p><code>sections</code></p>")) setMainTextState(mainText);
 
-      setMainTextState(body);
-    }
+    const htmlSections = `<ol>${
+      sections && !!sections.length && sections.map((section) => `<li>${section.title}</li>`).join("")
+    }</ol>`;
+    const body = mainText.split("<p><code>sections</code></p>").join(htmlSections);
+
+    setMainTextState(body);
   }, [mainText, sections]);
 
   return (
