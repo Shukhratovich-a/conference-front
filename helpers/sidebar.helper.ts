@@ -55,8 +55,8 @@ export const sidebarMenu = [
   },
   {
     id: 10,
-    title: "Contact",
-    route: "/contact",
+    title: "Contacts",
+    route: "/contacts",
     translate: "sidebar.contact",
   },
 ].sort((a, b) => a.id - b.id);
