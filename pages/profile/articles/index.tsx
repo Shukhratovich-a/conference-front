@@ -2,8 +2,10 @@ import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
+import { IHeader } from "@/types/header.type";
 import { IArticle } from "@/types/article.type";
 
+import { get as getHeader } from "@/api/header.api";
 import { getByToken as getUserByToken } from "@/api/user.api";
 import { getByToken as getArticlesByToken } from "@/api/article.api";
 
@@ -17,6 +19,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ articles }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ArticlesPageProps> = async ({ locale, req: { cookies } }) => {
+  const { data: header } = await getHeader({ language: locale });
+
   const token = cookies.token;
   if (!token) return { notFound: true };
 
@@ -28,6 +32,7 @@ export const getServerSideProps: GetServerSideProps<ArticlesPageProps> = async (
 
     return {
       props: {
+        header,
         user,
         token,
         articles,
@@ -42,6 +47,7 @@ export const getServerSideProps: GetServerSideProps<ArticlesPageProps> = async (
 export default withLayout(ArticlesPage);
 
 interface ArticlesPageProps extends Record<string, unknown> {
+  header: IHeader;
   user: IUser | null;
   token: string | null;
   articles: IArticle[];

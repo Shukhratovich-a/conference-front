@@ -4,7 +4,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { RoleEnum } from "@/enums/role.enum";
 import { IUser } from "@/types/user.type";
+import { IHeader } from "@/types/header.type";
 
+import { get as getHeader } from "@/api/header.api";
 import { getAll, getByToken } from "@/api/user.api";
 
 import { ParticipantsView } from "@/views";
@@ -16,6 +18,7 @@ const ParticipantsPage: FC<ParticipantsPageProps> = ({ participants }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = async ({ req: { cookies }, locale }) => {
+  const { data: header } = await getHeader({ language: locale });
   const { data: participants } = await getAll(RoleEnum.PARTICIPANT);
 
   const token = cookies.token || null;
@@ -28,6 +31,7 @@ export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = asy
 
   return {
     props: {
+      header,
       participants,
       token,
       user,
@@ -39,6 +43,7 @@ export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = asy
 export default withLayout(ParticipantsPage);
 
 interface ParticipantsPageProps extends Record<string, unknown> {
+  header: IHeader;
   participants: IUser[];
   token: string | null;
   user: IUser | null;

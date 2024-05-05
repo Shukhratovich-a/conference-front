@@ -3,7 +3,9 @@ import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
+import { IHeader } from "@/types/header.type";
 
+import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
 
 import { withLayout } from "@/layout/Layout";
@@ -15,6 +17,8 @@ const ProfilePage: FC<ProfilePageProps> = ({ user }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async ({ locale, req: { cookies } }) => {
+  const { data: header } = await getHeader({ language: locale });
+
   const token = cookies.token;
   if (!token) return { notFound: true };
 
@@ -24,6 +28,7 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async ({
 
     return {
       props: {
+        header,
         user,
         token,
         ...(await serverSideTranslations(String(locale))),
@@ -37,6 +42,7 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async ({
 export default withLayout(ProfilePage);
 
 interface ProfilePageProps {
+  header: IHeader;
   user: IUser | null;
   token: string | null;
 }

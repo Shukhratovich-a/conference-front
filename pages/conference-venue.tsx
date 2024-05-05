@@ -3,7 +3,9 @@ import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
+import { IHeader } from "@/types/header.type";
 
+import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
 
 import { withLayout } from "@/layout/Layout";
@@ -16,6 +18,8 @@ export const getServerSideProps: GetServerSideProps<ConferenceVenuePageProps> = 
   req: { cookies },
   locale,
 }) => {
+  const { data: header } = await getHeader({ language: locale });
+
   const token = cookies.token || null;
   let user = null;
 
@@ -26,6 +30,7 @@ export const getServerSideProps: GetServerSideProps<ConferenceVenuePageProps> = 
 
   return {
     props: {
+      header,
       token,
       user,
       ...(await serverSideTranslations(String(locale))),
@@ -36,6 +41,7 @@ export const getServerSideProps: GetServerSideProps<ConferenceVenuePageProps> = 
 export default withLayout(ConferenceVenuePage);
 
 interface ConferenceVenuePageProps extends Record<string, unknown> {
+  header: IHeader;
   token: string | null;
   user: IUser | null;
 }

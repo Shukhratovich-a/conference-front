@@ -4,7 +4,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { ISection } from "@/types/section.type";
 import { IUser } from "@/types/user.type";
+import { IHeader } from "@/types/header.type";
 
+import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
 import { getAll } from "@/api/section.api";
 
@@ -17,6 +19,7 @@ const SectionPage: FC<SectionPageProps> = ({ sections }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<SectionPageProps> = async ({ req: { cookies }, locale }) => {
+  const { data: header } = await getHeader({ language: locale });
   const { data: sections } = await getAll({ language: locale });
 
   const token = cookies.token || null;
@@ -29,6 +32,7 @@ export const getServerSideProps: GetServerSideProps<SectionPageProps> = async ({
 
   return {
     props: {
+      header,
       sections,
       token,
       user,
@@ -40,6 +44,7 @@ export const getServerSideProps: GetServerSideProps<SectionPageProps> = async ({
 export default withLayout(SectionPage);
 
 interface SectionPageProps extends Record<string, unknown> {
+  header: IHeader;
   sections: ISection[];
   token: string | null;
   user: IUser | null;
