@@ -3,6 +3,10 @@ export interface IHomepage {
 
   mainText: string;
 
+  title: string;
+
+  poster: string;
+
   createAt: Date;
 
   updateAt: Date;
