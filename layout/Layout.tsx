@@ -1,11 +1,13 @@
 import { FC } from "react";
-import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import cn from "classnames";
 
 import { LayoutProps } from "./Layout.props";
 
-import { AuthContextProvider, IAuthContext } from "@/contexts/auth.context";
+import { ILayout } from "@/types/layout.type";
+
+import { AuthContextProvider } from "@/contexts/auth.context";
+import { HeaderContextProvider } from "@/contexts/header.context";
 
 import { Header } from "./Header/Header.component";
 import { Footer } from "./Footer/Footer.component";
@@ -31,13 +33,15 @@ export const Layout: FC<LayoutProps> = ({ children, className, ...props }) => {
   );
 };
 
-export const withLayout = <T extends Record<string, unknown> & IAuthContext>(Component: FC<T>) => {
+export const withLayout = <T extends ILayout>(Component: FC<T>) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
       <AuthContextProvider token={props.token} user={props.user}>
-        <Layout>
-          <Component {...props} />
-        </Layout>
+        <HeaderContextProvider header={props.header}>
+          <Layout>
+            <Component {...props} />
+          </Layout>
+        </HeaderContextProvider>
       </AuthContextProvider>
     );
   };
