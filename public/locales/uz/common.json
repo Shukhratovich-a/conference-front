@@ -14,15 +14,15 @@
   "logout": "Chiqish",
 
   "sidebar": {
-    "important-date": "",
-    "sections": "",
-    "submission": "",
-    "conference-venue": "x",
-    "accommodation": "",
-    "social-program": "",
-    "conference-fees": "",
-    "program": "",
-    "sponsors": "",
-    "contact": ""
+    "important-date": "Важные даты",
+    "sections": "Разделы",
+    "submission": "Подчинение",
+    "conference-venue": "Место проведения конференции",
+    "accommodation": "Размещение",
+    "social-program": "Социальная программа»",
+    "conference-fees": "Сборы за конференцию",
+    "program": "Программа",
+    "sponsors": "Спонсоры",
+    "contact": "Контакты"
   }
 }
