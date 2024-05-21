@@ -24,5 +24,26 @@
     "program": "Dastur",
     "sponsors": "Homiylar",
     "contact": "Kontaktlar"
+  },
+
+  "auth": {
+    "login": {
+      "email": "Email",
+      "password": "Parol"
+    },
+    "register": {
+      "first-name": "Ism",
+      "last-name": "Familiya",
+      "gender": "Jins",
+      "institute": "Institut",
+      "specialty": "Mutaxassislik",
+      "country": "Davlat",
+      "city": "Shaxar",
+      "address": "Manzil",
+      "postal-code": "Pochta indeksi",
+      "phone": "Telefon",
+      "email": "Email",
+      "password": "Parol"
+    }
   }
 }

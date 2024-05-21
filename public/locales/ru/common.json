@@ -24,5 +24,26 @@
     "program": "Программа",
     "sponsors": "Спонсоры",
     "contact": "Контакты"
+  },
+
+  "auth": {
+    "login": {
+      "email": "Е-мейл",
+      "password": "Пароль"
+    },
+    "register": {
+      "first-name": "Имя",
+      "last-name": "Фамилия",
+      "gender": "Пол",
+      "institute": "Институт",
+      "specialty": "Специальность",
+      "country": "Страна",
+      "city": "Город",
+      "address": "Адрес",
+      "postal-code": "Почтовый индекс",
+      "phone": "Телефон",
+      "email": "Е-мейл",
+      "password": "Пароль"
+    }
   }
 }

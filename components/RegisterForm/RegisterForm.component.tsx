@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { AxiosError } from "axios";
+import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
 import { RegisterFormProps } from "./RegisterForm.props";
@@ -17,6 +18,7 @@ import styles from "./RegisterForm.module.scss";
 
 export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => {
   const { replace } = useRouter();
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -59,7 +61,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.firstName}
-          placeholder="First name"
+          placeholder={t("auth.register.first-name")}
         />
 
         <Input
@@ -68,7 +70,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.lastName}
-          placeholder="Last name"
+          placeholder={t("auth.register.last-name")}
         />
 
         <Select
@@ -80,7 +82,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           error={errors.gender}
         >
           <option value={""} disabled>
-            Gender
+            {t("auth.register.gender")}
           </option>
           <option value={GenderEnum.MALE}>Male</option>
           <option value={GenderEnum.FEMALE}>Female</option>
@@ -92,7 +94,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.institute}
-          placeholder="Institute"
+          placeholder={t("auth.register.institute")}
         />
 
         <Input
@@ -101,7 +103,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.specialty}
-          placeholder="Specialty"
+          placeholder={t("auth.register.specialty")}
         />
 
         <Input
@@ -110,7 +112,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.country}
-          placeholder="Country"
+          placeholder={t("auth.register.country")}
         />
 
         <Input
@@ -119,7 +121,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.city}
-          placeholder="City"
+          placeholder={t("auth.register.city")}
         />
 
         <Input
@@ -128,7 +130,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.address}
-          placeholder="Address"
+          placeholder={t("auth.register.address")}
         />
 
         <Input
@@ -137,7 +139,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.postalCode}
-          placeholder="Postal code"
+          placeholder={t("auth.register.postal-code")}
         />
 
         <Input
@@ -146,7 +148,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.phone}
-          placeholder="Phone"
+          placeholder={t("auth.register.phone")}
         />
 
         <Input
@@ -156,7 +158,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           })}
           className={cn(styles.input)}
           error={errors.email}
-          placeholder="Email"
+          placeholder={t("auth.register.email")}
         />
 
         <Input
@@ -167,7 +169,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           className={cn(styles.input)}
           error={errors.password}
           type="password"
-          placeholder="Password"
+          placeholder={t("auth.register.password")}
         />
         <Button className={cn(styles.button)} type="submit">
           Register

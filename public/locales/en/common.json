@@ -24,5 +24,26 @@
     "program": "Program",
     "sponsors": "Sponsors",
     "contact": "Contacts"
+  },
+
+  "auth": {
+    "login": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "register": {
+      "first-name": "First name",
+      "last-name": "Last name",
+      "gender": "Gender",
+      "institute": "Institute",
+      "specialty": "Specialty",
+      "country": "Country",
+      "city": "City",
+      "address": "Address",
+      "postal-code": "Postal code",
+      "phone": "Phone",
+      "email": "Email",
+      "password": "Password"
+    }
   }
 }

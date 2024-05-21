@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "next-i18next";
 import cn from "classnames";
 
 import { LoginFormProps } from "./LoginForm.props";
@@ -15,6 +16,7 @@ import styles from "./LoginForm.module.scss";
 
 export const LoginForm: FC<LoginFormProps> = ({ className, ...props }) => {
   const { replace } = useRouter();
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -50,7 +52,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className, ...props }) => {
           })}
           className={cn(styles.input)}
           error={errors.email}
-          placeholder="Email"
+          placeholder={t("auth.login.email")}
         />
 
         <Input
@@ -61,7 +63,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className, ...props }) => {
           className={cn(styles.input)}
           error={errors.password}
           type="password"
-          placeholder="Password"
+          placeholder={t("auth.login.password")}
         />
 
         <Button className={cn(styles.button)} type="submit">
