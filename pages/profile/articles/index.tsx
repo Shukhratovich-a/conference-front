@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -12,7 +13,6 @@ import { getByToken as getArticlesByToken } from "@/api/article.api";
 import { withLayout } from "@/layout/Layout";
 
 import { ArticlesView } from "@/views";
-import { FC } from "react";
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ articles }) => {
   return <ArticlesView articles={articles} />;
