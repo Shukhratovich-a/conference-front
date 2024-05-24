@@ -35,6 +35,7 @@
       "email": "Email",
       "password": "Parol"
     },
+
     "register": {
       "first-name": "Ism",
       "last-name": "Familiya",
