@@ -6,10 +6,10 @@ import { AccommodationViewProps } from "./Accommodation.props";
 
 import styles from "./Accommodation.module.scss";
 
-export const AccommodationView: FC<AccommodationViewProps> = ({ className, ...props }) => {
+export const AccommodationView: FC<AccommodationViewProps> = ({ className, accommodation, ...props }) => {
   return (
     <div className={cn(styles.view, className)} {...props}>
-      Accommodation
+      <div dangerouslySetInnerHTML={{ __html: accommodation.body }} />
     </div>
   );
 };
