@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<CreateArticlePageProps> = as
     const { data: user } = await getByToken(token);
     if (!user) return { notFound: true };
 
-    const { data: sections } = await getAllSections();
+    const { data: sections } = await getAllSections({ language: locale });
 
     return {
       props: {
