@@ -4,24 +4,28 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
 import { IHeader } from "@/types/header.type";
+import { IFee } from "@/types/fee.type";
 
-import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
+import { get as getHeader } from "@/api/header.api";
+import { get as getFee } from "@/api/fee.api";
 
 import { withLayout } from "@/layout/Layout";
 
 import { ConferenceFeesView } from "@/views";
 
-const HomePage: FC<ConferenceFeesPageProps> = () => {
+const HomePage: FC<ConferenceFeesPageProps> = ({ fee }) => {
   return (
     <>
-      <ConferenceFeesView />
+      <div dangerouslySetInnerHTML={{ __html: fee.body }} />
+      {/* <ConferenceFeesView /> */}
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps<ConferenceFeesPageProps> = async ({ req: { cookies }, locale }) => {
   const { data: header } = await getHeader({ language: locale });
+  const { data: fee } = await getFee({ language: locale });
 
   const token = cookies.token || null;
   let user = null;
@@ -36,6 +40,7 @@ export const getServerSideProps: GetServerSideProps<ConferenceFeesPageProps> = a
       header,
       token,
       user,
+      fee,
       ...(await serverSideTranslations(String(locale))),
     },
   };
@@ -44,6 +49,7 @@ export const getServerSideProps: GetServerSideProps<ConferenceFeesPageProps> = a
 export default withLayout(HomePage);
 
 interface ConferenceFeesPageProps extends Record<string, unknown> {
+  fee: IFee;
   header: IHeader;
   token: string | null;
   user: IUser | null;

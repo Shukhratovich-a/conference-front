@@ -4,28 +4,25 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
 import { IHeader } from "@/types/header.type";
+import { IDate } from "@/types/date.type";
 
-import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
+import { get as getHeader } from "@/api/header.api";
+import { get as getDates } from "@/api/date.api";
 
 import { withLayout } from "@/layout/Layout";
 
-const ImportantDatePage: FC<ImportantDatePageProps> = () => {
+const ImportantDatePage: FC<ImportantDatePageProps> = ({ date }) => {
   return (
     <>
-      <ul>
-        <li>Registration and Abstract submission deadline: 01.06.2024</li>
-
-        <li>Notification of acceptance deadline: 30.06.2024</li>
-
-        <li>Full paper submission deadline: 30.11.2024</li>
-      </ul>
+      <div dangerouslySetInnerHTML={{ __html: date.body }}></div>
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps<ImportantDatePageProps> = async ({ req: { cookies }, locale }) => {
   const { data: header } = await getHeader({ language: locale });
+  const { data: date } = await getDates({ language: locale });
 
   const token = cookies.token || null;
   let user = null;
@@ -38,6 +35,7 @@ export const getServerSideProps: GetServerSideProps<ImportantDatePageProps> = as
   return {
     props: {
       header,
+      date,
       token,
       user,
       ...(await serverSideTranslations(String(locale))),
@@ -48,6 +46,7 @@ export const getServerSideProps: GetServerSideProps<ImportantDatePageProps> = as
 export default withLayout(ImportantDatePage);
 
 interface ImportantDatePageProps extends Record<string, unknown> {
+  date: IDate;
   header: IHeader;
   token: string | null;
   user: IUser | null;
