@@ -58,13 +58,13 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
                   </Button>
                 </Link>
                 <Button className={cn(styles.button)} size="sm" onClick={handleLogout}>
-                  {t("logout")}
+                  {t("auth.name.logout")}
                 </Button>
               </div>
             ) : (
               <div>
                 <Button className={cn(styles.button)} size="sm">
-                  <Link href={`/auth/login`}>Login</Link>
+                  <Link href={`/auth/login`}>{t("auth.name.login")}</Link>
                 </Button>
               </div>
             )}

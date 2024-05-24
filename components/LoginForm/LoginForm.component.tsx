@@ -37,10 +37,11 @@ export const LoginForm: FC<LoginFormProps> = ({ className, ...props }) => {
     <form className={cn(styles.form, className)} onSubmit={handleSubmit(onSubmit)} {...props}>
       <div className={cn(styles.nav)}>
         <Link className={cn(styles.link, styles["link--active"])} href="/auth/login">
-          Login
+          {t("auth.name.login")}
         </Link>
+
         <Link className={cn(styles.link)} href="/auth/register">
-          Register
+          {t("auth.name.register")}
         </Link>
       </div>
 
@@ -67,7 +68,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className, ...props }) => {
         />
 
         <Button className={cn(styles.button)} type="submit">
-          Login
+          {t("auth.name.login")}
         </Button>
 
         {error && <span className={cn(styles.error)}>{error}</span>}

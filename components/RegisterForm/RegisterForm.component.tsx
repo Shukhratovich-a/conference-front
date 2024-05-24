@@ -46,11 +46,11 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
     <form className={cn(styles.form, className)} onSubmit={handleSubmit(onSubmit)} {...props}>
       <div className={cn(styles.nav)}>
         <Link className={cn(styles.link)} href="/auth/login">
-          Login
+          {t("auth.name.login")}
         </Link>
 
         <Link className={cn(styles.link, styles["link--active"])} href="/auth/register">
-          Register
+          {t("auth.name.register")}
         </Link>
       </div>
 
@@ -172,7 +172,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
           placeholder={t("auth.register.password")}
         />
         <Button className={cn(styles.button)} type="submit">
-          Register
+          {t("auth.name.register")}
         </Button>
 
         {error && <span className={cn(styles.error)}>{error}</span>}
