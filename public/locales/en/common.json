@@ -27,6 +27,12 @@
   },
 
   "auth": {
+    "name": {
+      "logout": "Logout",
+      "login": "Sign in",
+      "register": "Sign up"
+    },
+
     "login": {
       "email": "Email",
       "password": "Password"
@@ -45,5 +51,11 @@
       "email": "Email",
       "password": "Password"
     }
+  },
+
+  "profile": {
+    "info": "Info",
+    "articles": "Articles",
+    "create-article": "Create article"
   }
 }

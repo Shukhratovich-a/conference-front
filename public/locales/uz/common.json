@@ -11,8 +11,6 @@
 
   "contacts": "Kontaktlar",
 
-  "logout": "Chiqish",
-
   "sidebar": {
     "important-date": "Muhim sanalar",
     "sections": "Bo'limlar",
@@ -27,6 +25,12 @@
   },
 
   "auth": {
+    "name": {
+      "logout": "Chiqish",
+      "login": "Kirish",
+      "register": "Ro'yxatdan o'tish"
+    },
+
     "login": {
       "email": "Email",
       "password": "Parol"
@@ -45,5 +49,11 @@
       "email": "Email",
       "password": "Parol"
     }
+  },
+
+  "profile": {
+    "info": "Ma'lumotlar",
+    "articles": "Maqolalar",
+    "create-article": "Maqola qoshish"
   }
 }

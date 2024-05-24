@@ -27,10 +27,17 @@
   },
 
   "auth": {
+    "name": {
+      "logout": "Выйти",
+      "login": "Вход",
+      "register": "Зарегистрироваться"
+    },
+
     "login": {
       "email": "Е-мейл",
       "password": "Пароль"
     },
+
     "register": {
       "first-name": "Имя",
       "last-name": "Фамилия",
@@ -45,5 +52,11 @@
       "email": "Е-мейл",
       "password": "Пароль"
     }
+  },
+
+  "profile": {
+    "info": "Информация",
+    "articles": "Статьи",
+    "create-article": "Создать статью"
   }
 }
