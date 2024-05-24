@@ -4,24 +4,25 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
 import { IHeader } from "@/types/header.type";
+import { ISocialProgram } from "@/types/social-program.type";
 
-import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
+import { get as getHeader } from "@/api/header.api";
+import { get as getSocialProgram } from "@/api/social-program.api";
 
 import { withLayout } from "@/layout/Layout";
 
-const SocialProgramPage: FC<SocialProgramPageProps> = () => {
+const SocialProgramPage: FC<SocialProgramPageProps> = ({ socialProgram }) => {
   return (
     <>
-      <p>Organizing Committee is planning to offer an interesting social program including excursions and banquets.</p>
-
-      <p>Information about the social program will be announced lately.</p>
+      <div dangerouslySetInnerHTML={{ __html: socialProgram.body }} />
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps<SocialProgramPageProps> = async ({ req: { cookies }, locale }) => {
   const { data: header } = await getHeader({ language: locale });
+  const { data: socialProgram } = await getSocialProgram({ language: locale });
 
   const token = cookies.token || null;
   let user = null;
@@ -36,6 +37,7 @@ export const getServerSideProps: GetServerSideProps<SocialProgramPageProps> = as
       header,
       token,
       user,
+      socialProgram,
       ...(await serverSideTranslations(String(locale))),
     },
   };
@@ -44,6 +46,7 @@ export const getServerSideProps: GetServerSideProps<SocialProgramPageProps> = as
 export default withLayout(SocialProgramPage);
 
 interface SocialProgramPageProps extends Record<string, unknown> {
+  socialProgram: ISocialProgram;
   header: IHeader;
   token: string | null;
   user: IUser | null;

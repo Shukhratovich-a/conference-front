@@ -4,18 +4,25 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
 import { IHeader } from "@/types/header.type";
+import { IContact } from "@/types/contact.type";
 
-import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
+import { get as getHeader } from "@/api/header.api";
+import { get as getContact } from "@/api/contact.api";
 
 import { withLayout } from "@/layout/Layout";
 
-const ContactPage: FC<ContactPageProps> = ({}) => {
-  return <>Contact</>;
+const ContactPage: FC<ContactPageProps> = ({ contact }) => {
+  return (
+    <>
+      <div dangerouslySetInnerHTML={{ __html: contact.body }} />
+    </>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({ req: { cookies }, locale }) => {
   const { data: header } = await getHeader({ language: locale });
+  const { data: contact } = await getContact({ language: locale });
 
   const token = cookies.token || null;
   let user = null;
@@ -30,6 +37,7 @@ export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({
       header,
       token,
       user,
+      contact,
       ...(await serverSideTranslations(String(locale))),
     },
   };
@@ -38,6 +46,7 @@ export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({
 export default withLayout(ContactPage);
 
 interface ContactPageProps extends Record<string, unknown> {
+  contact: IContact;
   header: IHeader;
   token: string | null;
   user: IUser | null;
