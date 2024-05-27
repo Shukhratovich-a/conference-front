@@ -1,8 +1,8 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-import { IUser } from "@/types/user.type";
+import { IOrganizerType } from "@/types/organizer.type";
 
 export interface OrganizersViewProps
   extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "children"> {
-  organizers: IUser[];
+  organizerTypes: IOrganizerType[];
 }
