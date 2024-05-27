@@ -1,6 +1,6 @@
 .heading {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   font-size: 24px;
   line-height: 32px;
@@ -16,6 +16,23 @@
   text-transform: capitalize;
 
   & + & {
-    margin-top: 5px;
+    margin-top: 30px;
+  }
+}
+
+.item__heading {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.list__inner {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item__inner {
+  & + & {
+    margin-top: 10px;
   }
 }
