@@ -2,12 +2,13 @@ import { FC } from "react";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import { RoleEnum } from "@/enums/role.enum";
 import { IUser } from "@/types/user.type";
 import { IHeader } from "@/types/header.type";
+import { ISpeaker } from "@/types/speaker.type";
 
 import { get as getHeader } from "@/api/header.api";
-import { getAll, getByToken } from "@/api/user.api";
+import { getByToken } from "@/api/user.api";
+import { getAll as getAllSpeakers } from "@/api/speaker.api";
 
 import { SpeakersView } from "@/views";
 
@@ -19,7 +20,7 @@ const SpeakersPage: FC<SpeakersPageProps> = ({ speakers }) => {
 
 export const getServerSideProps: GetServerSideProps<SpeakersPageProps> = async ({ req: { cookies }, locale }) => {
   const { data: header } = await getHeader({ language: locale });
-  const { data: speakers } = await getAll(RoleEnum.SPEAKER);
+  const { data: speakers } = await getAllSpeakers({ language: locale });
 
   const token = cookies.token || null;
   let user = null;
@@ -32,9 +33,9 @@ export const getServerSideProps: GetServerSideProps<SpeakersPageProps> = async (
   return {
     props: {
       header,
-      speakers,
       token,
       user,
+      speakers,
       ...(await serverSideTranslations(String(locale))),
     },
   };
@@ -44,7 +45,7 @@ export default withLayout(SpeakersPage);
 
 interface SpeakersPageProps extends Record<string, unknown> {
   header: IHeader;
-  speakers: IUser[];
+  speakers: ISpeaker[];
   token: string | null;
   user: IUser | null;
 }
