@@ -17,23 +17,17 @@ export const SpeakersView: FC<SpeakersViewProps> = ({ className, speakers, ...pr
       {speakers.length ? (
         <>
           <ul className={cn(styles.list)}>
-            {speakers.map(({ id, name, degree, image }) => (
+            {speakers.map(({ id, name, degree, image, specialty, description }) => (
               <li className={cn(styles.item)} key={id}>
-                <Image src={image} width={200} height={200} alt={`${degree} ${name}`} />
+                <Image className={cn(styles.image)} src={image} width={200} height={200} alt={`${degree} ${name}`} />
 
-                <span>{`${degree} ${name} `}</span>
-              </li>
-            ))}
-          </ul>
+                <div>
+                  <p>
+                    <strong>{name}</strong> - <span>{specialty}</span>
+                  </p>
 
-          <ul className={cn(styles.list)}>
-            {speakers.map(({ id, name, specialty, description }) => (
-              <li className={cn(styles.item)} key={id}>
-                <p>
-                  <strong>{name}</strong> - <span>{specialty}</span>
-                </p>
-
-                <p>{description}</p>
+                  <p>{description}</p>
+                </div>
               </li>
             ))}
           </ul>

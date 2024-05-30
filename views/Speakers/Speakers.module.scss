@@ -13,9 +13,20 @@
 }
 
 .item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  font-size: 14px;
   text-transform: capitalize;
 
   & + & {
-    margin-top: 5px;
+    margin-top: 30px;
   }
+}
+
+.image {
+  flex-shrink: 0;
+
+  object-fit: cover;
 }
