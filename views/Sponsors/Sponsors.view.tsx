@@ -18,7 +18,7 @@ export const SponsorsView: FC<SponsorsViewProps> = ({ className, sponsors, ...pr
         <ul className={cn(styles.list)}>
           {sponsors.map(({ id, image, title }) => (
             <li className={cn(styles.item)} key={id}>
-              <Image className={cn(styles.image)} src={image} width={200} height={200} alt={title} />
+              <Image className={cn(styles.image)} src={image} width={250} height={150} alt={title} />
               <span>{title}</span>
             </li>
           ))}
