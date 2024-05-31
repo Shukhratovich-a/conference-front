@@ -14,3 +14,4 @@ export * from "./CreateArticle/CreateArticle.view";
 
 export * from "./Accommodation/Accommodation.view";
 export * from "./ConferenceFees/ConferenceFees.view";
+export * from "./Sponsors/Sponsors.view";

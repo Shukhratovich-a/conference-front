@@ -1,0 +1,29 @@
+.heading {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & + & {
+    margin-top: 30px;
+  }
+}
+
+.image {
+  flex-shrink: 0;
+
+  object-fit: cover;
+}

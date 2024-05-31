@@ -11,25 +11,14 @@ import { getByToken } from "@/api/user.api";
 import { get as getHeader } from "@/api/header.api";
 import { getAll as getAllSponsors } from "@/api/sponsor.api";
 
+import { SponsorsView } from "@/views";
+
 import { withLayout } from "@/layout/Layout";
 
 const SponsorsPage: FC<SponsorsPageProps> = ({ sponsors }) => {
   return (
     <>
-      <ul>
-        {!!sponsors.length ? (
-          sponsors.map((sponsor) => (
-            <li key={sponsor.id}>
-              <a href={"http://" + sponsor.website} target="_blank">
-                <Image src={sponsor.image} width={100} height={100} alt={sponsor.title} />
-                <span>{sponsor.title}</span>
-              </a>
-            </li>
-          ))
-        ) : (
-          <>no sponsors yet</>
-        )}
-      </ul>
+      <SponsorsView sponsors={sponsors} />
     </>
   );
 };
