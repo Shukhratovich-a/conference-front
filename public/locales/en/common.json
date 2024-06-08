@@ -1,7 +1,7 @@
 {
   "home": "Home",
   "organizers": "Organizers",
-  "speakers": "Invited Speakers",
+  "speakers": "Keynot speakers",
   "participants": "Participants",
 
   "main-text": "IX xalqaro ilmiy \"Amaliy matematika va axborot texnologiyalarining dolzarb muammolari\" - Al-Xorazmiy 2024 xalqaro ilmiy konferensiyasi",
@@ -15,6 +15,7 @@
 
   "sidebar": {
     "important-date": "Important dates",
+    "registration": "Registration",
     "sections": "Sections",
     "submission": "Submission",
     "conference-venue": "Conference venue",

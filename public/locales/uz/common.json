@@ -1,7 +1,7 @@
 {
   "home": "Bosh sahifa",
   "organizers": "Tashkilotchilar",
-  "speakers": "Invited Speakers",
+  "speakers": "Maruzachilar",
   "participants": "Ishtrokchilar",
 
   "main-text": "IX xalqaro ilmiy \"Amaliy matematika va axborot texnologiyalarining dolzarb muammolari\" - Al-Xorazmiy 2024 xalqaro ilmiy konferensiyasi",
@@ -13,6 +13,7 @@
 
   "sidebar": {
     "important-date": "Muhim sanalar",
+    "registration": "Ro‘yxatdan o‘tish",
     "sections": "Bo'limlar",
     "submission": "Tezislar topshirish sharlari",
     "conference-venue": "Konfirensiya o'tkazish joyi",

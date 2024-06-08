@@ -6,6 +6,12 @@ export const sidebarMenu = [
     translate: "sidebar.important-date",
   },
   {
+    id: 1,
+    title: "Registration",
+    route: "/auth/login",
+    translate: "sidebar.registration",
+  },
+  {
     id: 2,
     title: "Sections",
     route: "/sections",
