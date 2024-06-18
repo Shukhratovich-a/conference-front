@@ -4,21 +4,25 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { IUser } from "@/types/user.type";
 import { IHeader } from "@/types/header.type";
+import { IVenue } from "@/types/venue.type";
 
-import { get as getHeader } from "@/api/header.api";
 import { getByToken } from "@/api/user.api";
+import { get as getHeader } from "@/api/header.api";
+import { get as getVenue } from "@/api/venue.api";
 
 import { withLayout } from "@/layout/Layout";
 
-const ConferenceVenuePage: FC<ConferenceVenuePageProps> = () => {
-  return <>No data yet!</>;
+const VenuePage: FC<VenuePageProps> = ({ venue }) => {
+  return (
+    <>
+      <div dangerouslySetInnerHTML={{ __html: venue.body }} />
+    </>
+  );
 };
 
-export const getServerSideProps: GetServerSideProps<ConferenceVenuePageProps> = async ({
-  req: { cookies },
-  locale,
-}) => {
+export const getServerSideProps: GetServerSideProps<VenuePageProps> = async ({ req: { cookies }, locale }) => {
   const { data: header } = await getHeader({ language: locale });
+  const { data: venue } = await getVenue({ language: locale });
 
   const token = cookies.token || null;
   let user = null;
@@ -33,14 +37,16 @@ export const getServerSideProps: GetServerSideProps<ConferenceVenuePageProps> = 
       header,
       token,
       user,
+      venue,
       ...(await serverSideTranslations(String(locale))),
     },
   };
 };
 
-export default withLayout(ConferenceVenuePage);
+export default withLayout(VenuePage);
 
-interface ConferenceVenuePageProps extends Record<string, unknown> {
+interface VenuePageProps extends Record<string, unknown> {
+  venue: IVenue;
   header: IHeader;
   token: string | null;
   user: IUser | null;
