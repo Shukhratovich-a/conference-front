@@ -81,7 +81,7 @@ export const ArticleForm: FC<ArticleFormProps> = ({ className, sections, ...prop
         />
 
         <Textarea
-          {...register("body", { required: { value: true, message: "Enter description" } })}
+          {...register("body", { required: { value: false, message: "Enter description" } })}
           className={cn(styles.input)}
           error={errors.title}
           placeholder="Description"

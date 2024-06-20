@@ -135,7 +135,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, ...props }) => 
 
         <Input
           {...register("postalCode", {
-            required: { value: true, message: "Enter postal code" },
+            required: { value: false, message: "Enter postal code" },
           })}
           className={cn(styles.input)}
           error={errors.postalCode}
