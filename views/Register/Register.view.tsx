@@ -7,10 +7,10 @@ import { RegisterForm } from "@/components";
 
 import styles from "./Register.module.scss";
 
-export const RegisterView: FC<RegisterViewProps> = ({ className, ...props }) => {
+export const RegisterView: FC<RegisterViewProps> = ({ className, sections, ...props }) => {
   return (
     <div className={cn(styles.view, className)} {...props}>
-      <RegisterForm />
+      <RegisterForm sections={sections} />
     </div>
   );
 };

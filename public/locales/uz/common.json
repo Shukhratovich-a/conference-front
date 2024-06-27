@@ -29,7 +29,10 @@
     "name": {
       "logout": "Chiqish",
       "login": "Kirish",
-      "register": "Ro'yxatdan o'tish"
+      "register": "Ro'yxatdan o'tish",
+
+      "user-info": "Foydalanuvchi ma'lumotlari",
+      "article": "Maqola"
     },
 
     "login": {

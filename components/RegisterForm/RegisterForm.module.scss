@@ -39,8 +39,26 @@
   flex-direction: column;
 }
 
+.form__aside {
+  margin-bottom: 20px;
+
+  & + & {
+    padding-top: 20px;
+
+    border-top: 1px solid var(--primary);
+  }
+}
+
+.form__heading {
+  margin-top: 0;
+}
+
 .input {
   margin-bottom: 5px;
+
+  &:last-child {
+    margin-bottom: -15px;
+  }
 }
 
 .error {

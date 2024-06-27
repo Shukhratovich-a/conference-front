@@ -31,7 +31,10 @@
     "name": {
       "logout": "Logout",
       "login": "Sign in",
-      "register": "Sign up"
+      "register": "Sign up",
+
+      "user-info": "User information",
+      "article": "Article"
     },
 
     "login": {

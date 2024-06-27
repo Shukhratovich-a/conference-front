@@ -6,13 +6,13 @@ import { setAuthToken } from "@/helpers/auth.helper";
 import { ILoginForm } from "@/components/LoginForm/LoginForm.interface";
 import { IRegisterForm } from "@/components/RegisterForm/RegisterForm.interface";
 
-export const login = async (credentials: ILoginForm): Promise<{ status: number; id?: number }> => {
+export const login = async (credentials: ILoginForm): Promise<{ status: number; token?: string; id?: number }> => {
   try {
     const { data, status } = await axios.post<{ accessToken: string; id: number }>("/user/login", { ...credentials });
 
     if (status === 200 && !!data.accessToken) {
       setAuthToken(data.accessToken);
-      return { status, id: data.id };
+      return { status, id: data.id, token: data.accessToken };
     }
 
     return { status };
