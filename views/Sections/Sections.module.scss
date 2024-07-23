@@ -13,8 +13,6 @@
 }
 
 .item {
-  text-transform: capitalize;
-
   & + & {
     margin-top: 5px;
   }
