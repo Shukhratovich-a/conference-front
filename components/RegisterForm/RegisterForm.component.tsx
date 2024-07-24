@@ -31,7 +31,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, sections, ...pr
 
   const onSubmit = async ({ articleData, registerData }: ICreateUser) => {
     try {
-      const { status } = await registerApi(registerData);
+      const { status } = await registerApi({ ...registerData, trip: Boolean(registerData.trip) });
 
       if (status === 201) {
         const { status, id: userId, token } = await login(registerData);
@@ -219,6 +219,24 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, sections, ...pr
         </div>
 
         <div className={cn(styles.form__aside)}>
+          <div className={cn(styles.form__radio)}>
+            <span className={cn(styles.form__radio__heading)}>{t("auth.register.trip")}</span>
+
+            <div className={cn(styles.form__radio__inner)}>
+              <label className={cn(styles.form__radio__label)}>
+                <input {...register("registerData.trip")} type="radio" value={"true"} defaultChecked />
+
+                <span>{t("check.yes")}</span>
+              </label>
+
+              <label className={cn(styles.form__radio__label)}>
+                <input {...register("registerData.trip")} type="radio" value={"false"} />
+
+                <span>{t("check.no")}</span>
+              </label>
+            </div>
+          </div>
+
           <Input
             {...register("registerData.email", {
               required: { value: true, message: "Enter email" },

@@ -26,6 +26,8 @@ export interface IRegisterForm {
 
   role: string;
 
+  trip: boolean;
+
   email: string;
 
   password: string;

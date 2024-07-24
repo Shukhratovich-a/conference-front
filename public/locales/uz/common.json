@@ -13,6 +13,11 @@
 
   "footer": "IX Xalqaro Ilmiy \"Amaliy matematika va axborot texnologiyalarining dolzarb muammolari\" - Al-Xorazmiy 2024\" konferensiyasi",
 
+  "check": {
+    "yes": "Ha",
+    "no": "Yo'q"
+  },
+
   "sidebar": {
     "important-date": "Muhim sanalar",
     "registration": "Ro‘yxatdan o‘tish",
@@ -54,7 +59,8 @@
       "postal-code": "Pochta indeksi",
       "phone": "Telefon",
       "email": "Email",
-      "password": "Parol"
+      "password": "Parol",
+      "trip": "24-oktabr kuni qadimiy Samarqand shaxriga sayohat tashkillashtirilayapti. Siz ham qatnashasizmi? (*Sayohat faqat xorijiy qatnashchilar uchun)"
     }
   },
 

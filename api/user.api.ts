@@ -4,9 +4,10 @@ import axios from "./axios";
 
 import { RoleEnum } from "@/enums/role.enum";
 import { IUser } from "@/types/user.type";
+import { IGetAll } from "@/types/request.type";
 
-export const getAll = (role: RoleEnum) => {
-  const url = querystring.stringifyUrl({ url: "/user/get-all", query: { role } });
+export const getAll = (options: IGetAll & { role: RoleEnum }) => {
+  const url = querystring.stringifyUrl({ url: "/user/get-all", query: { ...options } });
 
   return axios.get<IUser[]>(url);
 };

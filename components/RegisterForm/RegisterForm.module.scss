@@ -61,6 +61,27 @@
   }
 }
 
+.form__radio {
+  margin-bottom: 25px;
+}
+
+.form__radio__heading {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form__radio__inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.form__radio__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .error {
   display: block;
   margin-top: 20px;
