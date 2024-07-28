@@ -9,7 +9,7 @@ import { IGetAll } from "@/types/request.type";
 export const getAll = (options: IGetAll & { role: RoleEnum }) => {
   const url = querystring.stringifyUrl({ url: "/user/get-all", query: { ...options } });
 
-  return axios.get<IUser[]>(url);
+  return axios.get<{ data: IUser[]; total: number }>(url);
 };
 
 export const getById = (id: number | string, token: string) => {
