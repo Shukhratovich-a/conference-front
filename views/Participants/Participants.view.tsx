@@ -30,7 +30,7 @@ export const ParticipantsView: FC<ParticipantsViewProps> = ({ className, users, 
   };
 
   const handleNext = () => {
-    replace({ pathname, query: { ...query, page: Number(page) + 1 } });
+    replace({ pathname, query: { ...query, page: page ? Number(page) + 1 : 2 } });
   };
 
   return (

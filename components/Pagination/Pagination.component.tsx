@@ -28,6 +28,7 @@ export const Pagination: FC<PaginationProps> = ({
 
   useEffect(() => {
     if (!!Number(page)) setCurrentPageState(Number(page));
+    else setCurrentPageState(1);
   }, [page]);
 
   const handleNavigate = (page: number) => {
