@@ -4,5 +4,5 @@ import { IUser } from "@/types/user.type";
 
 export interface ParticipantsViewProps
   extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "children"> {
-  participants: IUser[];
+  users: { data: IUser[]; total: number };
 }

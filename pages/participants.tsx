@@ -14,7 +14,7 @@ import { ParticipantsView } from "@/views";
 import { withLayout } from "@/layout/Layout";
 
 const ParticipantsPage: FC<ParticipantsPageProps> = ({ participants }) => {
-  return <ParticipantsView participants={participants} />;
+  return <ParticipantsView users={participants} />;
 };
 
 export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = async ({
@@ -50,7 +50,7 @@ export default withLayout(ParticipantsPage);
 
 interface ParticipantsPageProps extends Record<string, unknown> {
   header: IHeader;
-  participants: IUser[];
+  participants: { data: IUser[]; total: number };
   token: string | null;
   user: IUser | null;
 }
