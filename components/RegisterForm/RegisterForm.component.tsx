@@ -31,7 +31,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, sections, ...pr
 
   const onSubmit = async ({ articleData, registerData }: ICreateUser) => {
     try {
-      const { status } = await registerApi({ ...registerData, trip: Boolean(registerData.trip) });
+      const { status } = await registerApi({ ...registerData, trip: String(registerData.trip) === "true" });
 
       if (status === 201) {
         const { status, id: userId, token } = await login(registerData);
