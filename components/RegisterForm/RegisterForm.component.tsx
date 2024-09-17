@@ -74,6 +74,10 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, sections, ...pr
       </div>
 
       <div className={cn(styles.form__inner)}>
+        <p>{t("auth.end")}</p>
+      </div>
+
+      {/* <div className={cn(styles.form__inner)}>
         <div className={cn(styles.form__aside)}>
           <h4 className={cn(styles.form__heading)}>{t("auth.name.user-info")}</h4>
 
@@ -264,7 +268,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, sections, ...pr
         </Button>
 
         {error && <span className={cn(styles.error)}>{error}</span>}
-      </div>
+      </div> */}
     </form>
   );
 };

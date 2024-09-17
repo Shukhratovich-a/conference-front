@@ -37,6 +37,11 @@
 .form__inner {
   display: flex;
   flex-direction: column;
+
+  p {
+    margin: 0;
+    font-weight: 700;
+  }
 }
 
 .form__aside {
