@@ -34,7 +34,10 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled, ...props })
   const handleChange = async (locale: string) => {
     setIsOpen(false);
 
+    const isArabicLocale = i18n.language === "ar" || locale === "ar";
+
     replace({ pathname, query }, "", { scroll: false, locale });
+    if (isArabicLocale) reload();
   };
 
   const ref = useOutsideClick<HTMLDivElement>(handleClose);
