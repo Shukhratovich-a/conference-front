@@ -15,7 +15,7 @@ import styles from "./Language.module.scss";
 
 export const Language: FC<LanguageProps> = ({ className, isScrolled, ...props }) => {
   const { i18n } = useTranslation();
-  let { replace, query, pathname } = useRouter();
+  let { replace, query, pathname, reload } = useRouter();
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
