@@ -8,7 +8,7 @@ class MyDocument extends Document {
     return { ...initialProps };
   };
 
-  onst currentLocale = this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
+  const currentLocale = this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
 
   const isRtl = currentLocale === "ar" ? "content-rtl" : "";
 
@@ -17,7 +17,7 @@ class MyDocument extends Document {
       <Html dir={currentLocale === "ar" ? "rtl" : "ltr"} lang={currentLocale}>
         <Head />
 
-        <body>
+        <body className={isRtl}>
           <Main />
           <NextScript />
         </body>
