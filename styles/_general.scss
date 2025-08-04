@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
 html {
   box-sizing: border-box;
 }
@@ -26,9 +30,15 @@ body {
   font-size: 16px;
   line-height: 18px;
   color: var(--black);
+  font-family: "Inter", "Rubik", "Arial", sans-serif !important;
 }
 
 img,
 svg {
   vertical-align: middle;
+}
+
+.content-rtl {
+  direction: rtl;
+  font-family: "Tajawal", "Inter", "Rubik", "Arial", sans-serif !important;
 }

@@ -14,7 +14,7 @@ class MyDocument extends Document {
     const isRtl = currentLocale === "ar" ? "content-rtl" : "";
 
     return (
-      <Html dir={currentLocale === "ar" ? "rtl" : "ltr"} lang={currentLocale}>
+      <Html lang={currentLocale}>
         <Head />
 
         <body className={isRtl}>
