@@ -8,11 +8,11 @@ class MyDocument extends Document {
     return { ...initialProps };
   };
 
-  const currentLocale = this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
-
-  const isRtl = currentLocale === "ar" ? "content-rtl" : "";
-
   render(): JSX.Element {
+    const currentLocale = this.props.__NEXT_DATA__.locale || i18nextConfig.i18n.defaultLocale;
+
+    const isRtl = currentLocale === "ar" ? "content-rtl" : "";
+
     return (
       <Html dir={currentLocale === "ar" ? "rtl" : "ltr"} lang={currentLocale}>
         <Head />
