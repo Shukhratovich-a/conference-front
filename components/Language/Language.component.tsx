@@ -36,7 +36,7 @@ export const Language: FC<LanguageProps> = ({ className, isScrolled, ...props })
 
     const isArabicLocale = i18n.language === "ar" || locale === "ar";
 
-    replace({ pathname, query }, "", { scroll: false, locale });
+    await replace({ pathname, query }, "", { scroll: false, locale });
     if (isArabicLocale) reload();
   };
 
