@@ -15,11 +15,11 @@ import { Sidebar } from "./Sidebar/Sidebar.component";
 
 import styles from "./Layout.module.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const Layout: FC<LayoutProps> = ({ children, className, ...props }) => {
   return (
-    <div className={cn(styles.layout, inter.className)} {...props}>
+    <div className={cn(styles.layout)} {...props}>
       <Header className={cn(styles.header)} />
 
       <main className={cn(styles.main)}>
