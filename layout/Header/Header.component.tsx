@@ -70,7 +70,9 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
             )}
           </div>
 
-          <Language className={cn(styles.language)} />
+          <div>
+            <Language className={cn(styles.language)} />
+          </div>
         </div>
       </div>
 
