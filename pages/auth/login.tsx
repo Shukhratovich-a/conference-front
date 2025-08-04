@@ -16,7 +16,7 @@ const LoginPage: FC<LoginPageProps> = () => {
 };
 
 export const getStaticProps: GetStaticProps<LoginPageProps> = async ({ locale }) => {
-  const { data: header } = await getHeader({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
 
   return {
     props: {

@@ -19,8 +19,8 @@ const RegisterPage: FC<RegisterPageProps> = ({ sections }) => {
 
 export const getStaticProps: GetStaticProps<RegisterPageProps> = async ({ locale }) => {
   try {
-    const { data: header } = await getHeader({ language: locale });
-    const { data: sections } = await getAllSections({ language: locale });
+    const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+    const { data: sections } = await getAllSections({ language: locale === 'ar' ? 'ru' : locale });
 
     return {
       props: {

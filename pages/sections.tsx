@@ -19,8 +19,8 @@ const SectionPage: FC<SectionPageProps> = ({ sections }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<SectionPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: sections } = await getAll({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: sections } = await getAll({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

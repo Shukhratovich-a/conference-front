@@ -30,9 +30,9 @@ const HomePage: FC<HomePageProps> = ({ homepage, sections }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<HomePageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: homepage } = await getHomepage({ language: locale });
-  const { data: sections } = await getAllSection({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: homepage } = await getHomepage({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: sections } = await getAllSection({ language: locale === 'ar' ? 'ru' : locale });
 
   header.poster = homepage.poster;
 

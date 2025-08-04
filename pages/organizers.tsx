@@ -20,8 +20,8 @@ const OrganizersPage: FC<OrganizersPageProps> = ({ organizerTypes }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<OrganizersPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: organizerTypes } = await getAllOrganizerTypes({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: organizerTypes } = await getAllOrganizerTypes({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

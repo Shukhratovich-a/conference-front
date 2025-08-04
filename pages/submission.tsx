@@ -21,8 +21,8 @@ const SubmissionPage: FC<SubmissionPageProps> = ({ submission }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<SubmissionPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: submission } = await getSubmission({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: submission } = await getSubmission({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

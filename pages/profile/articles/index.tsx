@@ -19,7 +19,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ articles }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ArticlesPageProps> = async ({ locale, req: { cookies } }) => {
-  const { data: header } = await getHeader({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token;
   if (!token) return { notFound: true };

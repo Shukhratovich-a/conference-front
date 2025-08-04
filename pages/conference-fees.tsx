@@ -24,8 +24,8 @@ const HomePage: FC<ConferenceFeesPageProps> = ({ fee }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ConferenceFeesPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: fee } = await getFee({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: fee } = await getFee({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

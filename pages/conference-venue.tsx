@@ -21,8 +21,8 @@ const VenuePage: FC<VenuePageProps> = ({ venue }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<VenuePageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: venue } = await getVenue({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: venue } = await getVenue({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

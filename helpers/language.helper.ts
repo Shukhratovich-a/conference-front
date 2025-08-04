@@ -3,7 +3,7 @@ export const languages = [
     locale: "uz",
   },
   {
-    locale: "ru",
+    locale: "ar",
   },
   {
     locale: "en",

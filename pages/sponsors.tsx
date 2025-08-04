@@ -24,8 +24,8 @@ const SponsorsPage: FC<SponsorsPageProps> = ({ sponsors }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<SponsorsPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: sponsors } = await getAllSponsors({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: sponsors } = await getAllSponsors({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

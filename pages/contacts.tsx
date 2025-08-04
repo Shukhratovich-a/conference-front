@@ -21,8 +21,8 @@ const ContactPage: FC<ContactPageProps> = ({ contact }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ContactPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: contact } = await getContact({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: contact } = await getContact({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

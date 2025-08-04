@@ -21,8 +21,8 @@ const ImportantDatePage: FC<ImportantDatePageProps> = ({ date }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ImportantDatePageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: date } = await getDates({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: date } = await getDates({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

@@ -19,8 +19,8 @@ const SpeakersPage: FC<SpeakersPageProps> = ({ speakers }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<SpeakersPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: speakers } = await getAllSpeakers({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: speakers } = await getAllSpeakers({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

@@ -23,8 +23,8 @@ const HomePage: FC<AccommodationPageProps> = ({ accommodation }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<AccommodationPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: accommodation } = await getAccommodation({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: accommodation } = await getAccommodation({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

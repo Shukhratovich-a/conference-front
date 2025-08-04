@@ -21,8 +21,8 @@ const ProgramPage: FC<ProgramPageProps> = ({ program }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<ProgramPageProps> = async ({ req: { cookies }, locale }) => {
-  const { data: header } = await getHeader({ language: locale });
-  const { data: program } = await getProgram({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
+  const { data: program } = await getProgram({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token || null;
   let user = null;

@@ -19,7 +19,7 @@ const CreateArticlePage: FC<CreateArticlePageProps> = ({ sections }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<CreateArticlePageProps> = async ({ locale, req: { cookies } }) => {
-  const { data: header } = await getHeader({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
 
   const token = cookies.token;
   if (!token) return { notFound: true };
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<CreateArticlePageProps> = as
     const { data: user } = await getByToken(token);
     if (!user) return { notFound: true };
 
-    const { data: sections } = await getAllSections({ language: locale });
+    const { data: sections } = await getAllSections({ language: locale === 'ar' ? 'ru' : locale });
 
     return {
       props: {

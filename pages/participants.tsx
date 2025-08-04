@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps<ParticipantsPageProps> = asy
 }) => {
   const { page } = query;
 
-  const { data: header } = await getHeader({ language: locale });
+  const { data: header } = await getHeader({ language: locale === 'ar' ? 'ru' : locale });
   const { data: participants } = await getAll({ role: RoleEnum.PARTICIPANT, limit: 25, page: Number(page) || 1 });
 
   const token = cookies.token || null;
