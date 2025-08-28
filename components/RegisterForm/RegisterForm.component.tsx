@@ -223,7 +223,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, sections, ...pr
         </div>
 
         <div className={cn(styles.form__aside)}>
-          <div className={cn(styles.form__radio)}>
+          {/* <div className={cn(styles.form__radio)}>
             <span className={cn(styles.form__radio__heading)}>{t("auth.register.trip")}</span>
 
             <div className={cn(styles.form__radio__inner)}>
@@ -239,7 +239,7 @@ export const RegisterForm: FC<RegisterFormProps> = ({ className, sections, ...pr
                 <span>{t("check.no")}</span>
               </label>
             </div>
-          </div>
+          </div> */}
 
           <Input
             {...register("registerData.email", {
